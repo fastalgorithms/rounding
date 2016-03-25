@@ -1,9 +1,10 @@
-Roadmap to polyhedral smoothing MATLAB code
+## Polyhedral smoothing in MATLAB
 
-The code is divided into 3 major groups
+The code is divided into three applications:
 
-1. Smoothing 1 dimensional objects in the plane
-   a. smthabv(h,k,n) This program returns 2n-samples of the
+### Smoothing 1-dimensional objects in the plane
+
+a. smthabv(h,k,n) This program returns 2n-samples of the
    convolution |x|*(1-(x/h)^2)^k
       b. smthpoly(v,h,k,m) This program smooths a polygon with
    vertices listed in v. (h,k,m) are parameters specifying the
@@ -13,8 +14,9 @@ The code is divided into 3 major groups
 These programs are called by polygon_tst.m which uses these routines
 to smooth regular polygons and plot the results.
 
-2. Smoothing 2 dimensional objects in 3-space.
-   a. polyframe(V,E,F) takes a polyhedron with vertices in V and edges
+### Smoothing 2-dimensional objects in 3-space.
+
+a. polyframe(V,E,F) takes a polyhedron with vertices in V and edges
    and faces described in E and F respectively and returns data
    structures describing the local geometry of vertices, edges and
    faces. For example, for each vertex we get a list of the other
@@ -37,7 +39,8 @@ to smooth regular polygons and plot the results.
 These programs are called by smth_polyhedron_tst.m, which contains the
 data needed to define the platonic solids (but not the dodecahedron).
 
-3. Plotting routines
+### Plotting
+
 a. pltsmvx plots samples of a smoothed vertex
 b. pltsmed plots samples of a smoothed edge
 c. pltpoly plots the edges and vertices of a polyhedron
