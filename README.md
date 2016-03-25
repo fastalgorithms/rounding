@@ -1,18 +1,14 @@
 ## Polyhedral smoothing in MATLAB
 
-The code is divided into three applications:
+The code is divided into three main applications:
 
 ### Smoothing 1-dimensional objects in the plane
 
-a. smthabv(h,k,n) This program returns 2n-samples of the
-   convolution |x|*(1-(x/h)^2)^k
-      b. smthpoly(v,h,k,m) This program smooths a polygon with
-   vertices listed in v. (h,k,m) are parameters specifying the
-   smoothness of the smoothed vertices and the number of samples
-   points therein.
+`smthabv(h,k,n)` This program returns $2n$ equispaced samples of the convolution $|x|*(1-(x/h)^2)^k$ on $[-1,1]$
 
-These programs are called by polygon_tst.m which uses these routines
-to smooth regular polygons and plot the results.
+`smthpoly(v,h,k,m)` This program smooths a polygon with vertices listed in the variable `v`. The other parameters `h,k,m` specify the smoothness of the resulting smoothed vertices and the number of sample points therein.
+
+These programs are called by `polygon_tst.m` which uses these routines to smooth regular polygons and plot the results.
 
 ### Smoothing 2-dimensional objects in 3-space.
 
