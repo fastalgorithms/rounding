@@ -1,0 +1,60 @@
+function [psamp,ntot] = smthpoly(v,he,ke,me)
+%This function smooths a polygon
+%
+%Input variables
+% v are the vertices
+% he, ke are smoothing parameters
+% 2*me is the number of sample points are each smoothed vertex
+%
+%Output variables
+% psamp are sample points lying on the smoothed polygon
+% ntot = sz(psamp)
+%
+nv = sz(v);%How many vertices.
+%
+%We now set up the local geometries for the edges
+for j = 1:nv
+    j1 = 1+mod(j,nv);
+    j0 =1+mod(j-2,nv);
+   X(j,1:2) = (v(j1,1:2)-v(j,1:2));
+   X(j,1:2)=X(j,1:2)/sqrt(X(j,1:2)*X(j,1:2)');
+   Y(j,1:2) = (v(j0,1:2)-v(j,1:2));
+   Y(j,1:2)=Y(j,1:2)/sqrt(Y(j,1:2)*Y(j,1:2)');
+end
+%We get samples of the function used to smooth the vertices
+[as0,j0,j1]= smthabv(he,ke,2*me);% We use the part with indices from j0 to j1+1
+as = as0(j0:j1+1);
+s0 = (0:4*me-1)/(2*me)-1;
+s = s0(j0:j1+1);
+x = as+s;
+y = as-s;
+npte = j1-j0+2; % The number of points on the smoothed edges.
+%Find the intersections of the smoothed edges near to the vertex
+%A tolerance for calculations
+
+npt1 = nv*npte; % The number of sample points on all the curved parts.
+nx2 = ceil(log2(npt1));
+nflp = nx2;
+
+    for q2 = 1:nv %Loop vertices
+        psamp(1+(q2-1)*(npte+nflp):q2*npte+(q2-1)*nflp,1:2) = ...
+            ones(npte,1)*v(q2,1:2)+(x(1:npte))'*X(q2,1:2)+(y(1:npte))'*Y(q2,1:2);
+        Z1 = v(q2,1:2)+x(npte)*X(q2,1:2)+y(npte)*Y(q2,1:2); %The last point on the current edge  
+        q2n=1+mod(q2,nv); %Next q2 index in cyclic order
+        Z2 = v(q2n,1:2)+x(1)*X(q2n,1:2)+y(1)*Y(q2n,1:2);%The first point on the next edge
+            
+        %Test code:
+        Zdif = Z2-Z1;
+        nZ =sqrt(Zdif*Zdif');
+        %
+        %
+        psamp(q2*npte+(q2-1)*nflp+1:q2*(npte+nflp),1:2) = ones(nflp,1)*Z1(1:2)+...
+            ((1:nflp)'/(1+nflp))*Zdif(1:2);%Construct the straight segment joining the two curved ones
+    end
+    ntot = sz(psamp);
+    psamp(ntot+1,1:2)=psamp(1,1:2);
+    ntot = ntot+1;
+    %psamp(ntot+1)=psamp(1);% To get a closed curve
+end
+  
+
