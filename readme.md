@@ -13,9 +13,9 @@ plotted.
 
 The main routines used are `smthabv(h,k,n)` and `smthpoly(v,h,k,m)`.
 
-The file [smthabhv.m](src/smthabhv.m) contains a function which
+The file [smthabv.m](src/smthabv.m) contains a function which
 returns 2n equispaced samples of the convolution of a compactly
-supported kernel (1-(x/h)^2)^k on [-1,1] with the function abs(x).
+supported kernel ( 1-(x/h)^2 )^k on [-1,1] with the function abs(x).
 
 The file [smthpoly.m](src/smthpoly.m) smooths a polygon with vertices
 listed in the variable `v`. The other parameters `h,k,m` specify the
