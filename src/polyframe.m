@@ -1,5 +1,15 @@
-function [Vout,Eout,Fout,lmn] = polyframe(V,E,F)
+%
+% (c) 2016 Charles L. Epstein and Michael O'Neil
+%
+% See gitlab.com/oneilm/rounding/license.md for copyright information,
+% and the corresponding paper for technical information:
+%
+%     C. L. Epstein and M. O'Neil, "Smoothed corners and scattered
+%     waves", arXiv:1506.08449, 2016.
+%     
 
+function [Vout,Eout,Fout,lmn] = polyframe(V,E,F)
+%
 % This function inputs a geometric/combinatorial description of a
 % polyhedron as: 
 %
@@ -59,7 +69,7 @@ cv = sum(V)/nv;
 % Process the faces
 %
 for j=1:nf
-
+    
     nvf = sz(F{j});
     i1 = F{j}(1);
     i2 = F{j}(2);

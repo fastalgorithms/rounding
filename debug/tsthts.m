@@ -1,4 +1,12 @@
 %
+% (c) 2016 Charles L. Epstein and Michael O'Neil
+%
+% See gitlab.com/oneilm/rounding/license.md for copyright information,
+% and the corresponding paper for technical information:
+%
+%     C. L. Epstein and M. O'Neil, "Smoothed corners and scattered
+%     waves", arXiv:1506.08449, 2016.
+%     
 % merely some testing code for the polygonal convolutions
 %
 
