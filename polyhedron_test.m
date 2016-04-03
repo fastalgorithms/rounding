@@ -160,10 +160,3 @@ for j = 1:sz(E)
 end
 
 pltpoly(V,E);
-
-%
-% Plot the centroids
-%
-%for jj=1:sz(F)
-%    scatter3(F0{jj,3}(1),F0{jj,3}(2),F0{jj,3}(3));
-%end
