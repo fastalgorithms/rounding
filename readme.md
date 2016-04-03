@@ -1,6 +1,6 @@
 ## Polyhedral smoothing in MATLAB
 
-![alt text](pyramid.png "Rounded pyramid")
+![alt text](pyramid.svg "Rounded pyramid")
 
 The code is divided into three main applications:
 
