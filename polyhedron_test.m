@@ -31,7 +31,7 @@ addpath('./src');
 %
 % First choose a polyhedron
 %
-pnum = 3
+pnum = 5
 
 
 %
