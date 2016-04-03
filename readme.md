@@ -27,7 +27,7 @@ points therein.
 
 The driver file **polyhedron_test.m** constructs rounding of the
 Platonic solids (except the dodecahedron).
-It is easily adaptable to other polyhedrons, only vertex, edges, and
+It is easily adaptable to other polyhedrons, only vertex, edge, and
 face information is needed. A carcass of the resulting polyhedron is
 plotted automatically.
 
