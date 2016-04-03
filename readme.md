@@ -25,8 +25,8 @@ points therein.
 
 ### Smoothing 2-dimensional objects in 3-space.
 
-The driver file **polyhedron_test.m** constructs rounding of various
-polyhedron, including
+The driver file **polyhedron_test.m** constructs rounding of the
+Platonic solids (except the dodecahedron).
 It is easily adaptable to other polyhedrons, only vertex, edges, and
 face information is needed. A carcass of the resulting polyhedron is
 plotted automatically.
@@ -52,9 +52,6 @@ and `smthedge()`.
    vertices have already been smoothed, and the variables
    (lmin0,lmin1) describe the size of the region along edge modified
    in the vertex smoothing step.
-
-These programs are called by smth_polyhedron_tst.m, which contains the
-data needed to define the platonic solids (but not the dodecahedron).
 
 ### Plotting
 
