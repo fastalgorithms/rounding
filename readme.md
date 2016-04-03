@@ -1,5 +1,7 @@
 ## Polyhedral smoothing in MATLAB
 
+![alt text](pyramid.png "Rounded pyramid")
+
 The code is divided into three main applications:
 
 ### Smoothing 1-dimensional objects in the plane
